@@ -1,5 +1,7 @@
 # From wikipedia: http://en.wikibooks.org/wiki/Algorithm_Implementation/Sorting/Merge_sort#Ruby
 
+# mergesort is O(n log n)
+
 def merge_sort(array)
   return array if array.size <= 1
   left = merge_sort array[0, array.size / 2]

@@ -1,11 +1,27 @@
 require 'rake/testtask'
+require 'rake/benchmark'
 
-task default: 'test'
+task :default => [:bubble_sort_test, :quick_sort_test, :merge_sort_test] do
+    puts "testsorts done"
+end
 
-# Run all the minitest tests in that subdirectory
+task :bubble_sort_test do 
+  Rake::TestTask.new do |test|
+    test.libs << "bubble_sort_test"
+    test.pattern = "minitests/bubble_sort_test.rb"
+  end
+end
 
-Rake::TestTask.new do |test|
-  test.libs << "test"
-  test.pattern = "minitests/*_test.rb"
-  test.verbose = true
+task :quick_sort_test do 
+  Rake::TestTask.new do |test|
+    test.libs << "quick_sort_test"
+    test.pattern = "minitests/quick_sort_test.rb"
+  end
+end
+
+task :merge_sort_test do 
+  Rake::TestTask.new do |test|
+    test.libs << "merge_sort_test"
+    test.pattern = "minitests/merge_sort_test.rb"
+  end
 end

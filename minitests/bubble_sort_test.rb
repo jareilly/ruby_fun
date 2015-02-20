@@ -16,8 +16,19 @@ describe "basic bubble_sort" do
     bubble_sort(unsorted).must_equal sorted
   end
 
-  it "should sort strings too" do
+  it "should sort strings" do
     sorted = %w{ apple banana grapes kiwi pear}
+    unsorted = sorted.shuffle
+    bubble_sort(unsorted).must_equal sorted
+  end
+
+  it "should sort arbirtarily large arrays" do
+    # create a large sorted array... this could be a static one...
+    minval = 0
+    maxval = 200000
+    size = maxval
+    sorted = (minval..maxval).to_a.sort{ rand() - 0.5 }[0..size-1].sort
+
     unsorted = sorted.shuffle
     bubble_sort(unsorted).must_equal sorted
   end

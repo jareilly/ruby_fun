@@ -1,4 +1,5 @@
 # following wikipedia pseudocode
+# bubblesort is O(n**2)
 
 def bubble_sort(array)
   length = array.length

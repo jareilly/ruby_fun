@@ -2,9 +2,12 @@ GEM
   remote: https://rubygems.org/
   specs:
     rake (10.1.1)
+    rake-benchmark (1.0.0)
+      rake
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   rake
+  rake-benchmark

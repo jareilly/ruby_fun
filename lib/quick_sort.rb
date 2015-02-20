@@ -1,3 +1,5 @@
+# Quicksort is O(n**2)
+
 def quick_sort(array)
   return [] if array.empty? || array.nil?
 
