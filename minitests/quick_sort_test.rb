@@ -27,7 +27,7 @@ describe "basic quick_sort" do
     minval = 0
     maxval = 200000
     size = maxval
-    sorted = (minval..maxval).to_a.sort{ rand() - 0.5 }[0..size-1].sort
+    sorted = (minval..maxval).shuffle[0..size-1].sort
   
     unsorted = sorted.shuffle
     quick_sort(unsorted).must_equal sorted

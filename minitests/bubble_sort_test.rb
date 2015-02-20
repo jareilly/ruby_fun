@@ -27,7 +27,7 @@ describe "basic bubble_sort" do
     minval = 0
     maxval = 200000
     size = maxval
-    sorted = (minval..maxval).to_a.sort{ rand() - 0.5 }[0..size-1].sort
+    sorted = (minval..maxval).to_a.shuffle[0..size-1].sort
 
     unsorted = sorted.shuffle
     bubble_sort(unsorted).must_equal sorted
