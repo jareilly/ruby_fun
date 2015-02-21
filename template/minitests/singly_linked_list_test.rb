@@ -14,7 +14,19 @@ describe "test" do
   	list.prepend 1
   	list.prepend 2
   	list.prepend 3
-  	list.length == 2 	
+    assert !list.empty?
+    assert list.length == 3
+    assert list.contains? 1
+    assert list.contains? 1
+    assert list.contains? 1
+  end
+
+  it "appends to a list successfully" do
+    list = LinkedList.new
+    list.append 1
+    list.append 2
+    list.append 3
+    list.length == 2
     assert !list.empty?
   end
 

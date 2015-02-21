@@ -16,6 +16,7 @@ class LinkedList
 
   def initialize
     @head = nil
+    @tail = nil
     @length = 0
   end
 
@@ -23,6 +24,7 @@ class LinkedList
     length == 0
   end
 
+  # stringify from head to tail
   def stringify
     string = String.new
     current = @head
@@ -53,18 +55,31 @@ class LinkedList
   # linked list operations
   #
 
+  # add value to end of list
   def append(value)
+    node = Node.new
+    node.value = value
+
+    if @head.nil? && @tail.nil?
+      @head = node
+      @tail = node
+    else
+      @tail.next = node
+      @tail = node
+    end
+    @length = @length + 1
   end
 
+  # add value to start of list
   def prepend(value)
     node = Node.new
     node.value = value
     node.next = @head
 
-    if @head.nil?
+    if @head.nil? && @tail.nil?
       @head = node
+      @tail = node
     else
-      node.next = @head
       @head = node
     end
     @length = @length + 1
