@@ -16,6 +16,10 @@ describe "test" do
   	list.prepend 3
     assert !list.empty?
     assert list.length == 3
+    assert list.contains? 1
+    assert list.contains? 2
+    assert list.contains? 3
+    assert list.stringify.eql?("3->2->1"), "DEBUG list:" + list.stringify
   end
 
   #it "last test: fail until all tests written!!" do

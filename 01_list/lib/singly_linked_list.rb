@@ -14,16 +14,44 @@ class LinkedList
     attr_accessor :value, :next
   end
 
-
   def initialize
     @head = nil
     @length = 0
   end
 
   def empty?
-    return @head == nil
+    length == 0
   end
 
+  def stringify
+    string = String.new
+    current = @head
+    until current.nil?
+      # manually cast value (e.g. fixnum) to string for proper stringify:ing
+      string << current.value.to_s
+
+      if current.next != nil
+        string << "->"
+      end
+      current = current.next
+    end   
+    string
+  end
+
+  def contains?(value)
+    current = @head
+    until current.nil? 
+      if current.value == value
+        return true
+      end
+      current = current.next
+    end   
+    false
+  end
+
+  #
+  # linked list operations
+  #
 
   def append(value)
   end
@@ -32,7 +60,13 @@ class LinkedList
     node = Node.new
     node.value = value
     node.next = @head
-    @head = node
+
+    if @head.nil?
+      @head = node
+    else
+      node.next = @head
+      @head = node
+    end
     @length = @length + 1
   end
 
@@ -41,6 +75,4 @@ class LinkedList
 
   def delete(value, position)
   end
-
-
 end
