@@ -34,18 +34,18 @@ class LinkedList
         string << "->"
       end
       current = current.next
-    end   
+    end
     string
   end
 
   def contains?(value)
     current = @head
-    until current.nil? 
+    until current.nil?
       if current.value == value
         return true
       end
       current = current.next
-    end   
+    end
     false
   end
 
