@@ -109,10 +109,12 @@ class LinkedList
     @length = @length + 1
   end
 
-  def insert_after(value, position)
-    raise RangeError, 'position out of range' unless (position >= 0 && position < length-1)
-
-    # TBD
+  def insert_after(index, value)
+    if (index == @length-1)
+      append(value)
+    else
+      insert_before(index+1, value)
+    end
   end
 
   def delete(value, position)

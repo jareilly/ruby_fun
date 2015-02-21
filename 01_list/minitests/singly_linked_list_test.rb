@@ -36,7 +36,7 @@ describe "test" do
     assert list.stringify.eql?("1->2->3->3"), "DEBUG list:" + list.stringify
   end
 
-  it "test: insert before" do
+  it "test: insert" do
     list = LinkedList.new
     list.append 2
     list.append 3
@@ -60,15 +60,27 @@ describe "test" do
 
     ix = 1
     list.insert_before(ix, 4)
-    assert list.length == 4, "DEBUG list length is 3"
+    assert list.length == 4, "DEBUG list length is 4"
     assert list.contains?(4), "DEBUG contains 1 " + list.stringify
     assert list.stringify.eql?("1->4->2->3"), "DEBUG list:" + list.stringify
 
     ix = 3
     list.insert_before(ix, 5)
-    assert list.length == 5, "DEBUG list length is 3"
+    assert list.length == 5, "DEBUG list length is 5"
     assert list.contains?(5), "DEBUG contains 1 " + list.stringify
     assert list.stringify.eql?("1->4->2->5->3"), "DEBUG list:" + list.stringify
+
+    ix = 0
+    list.insert_after(ix, 6)
+    assert list.length == 6, "DEBUG list length is 6"
+    assert list.contains?(6), "DEBUG contains 1 " + list.stringify
+    assert list.stringify.eql?("1->6->4->2->5->3"), "DEBUG list:" + list.stringify
+
+    ix = 5
+    list.insert_after(ix, 7)
+    assert list.length == 7, "DEBUG list length is 6"
+    assert list.contains?(7), "DEBUG contains 1 " + list.stringify
+    assert list.stringify.eql?("1->6->4->2->5->3->7"), "DEBUG list:" + list.stringify
 
   end
 
