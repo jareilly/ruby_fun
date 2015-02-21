@@ -10,10 +10,10 @@ describe "test" do
   end
 
   it "test: prepend to list" do
-  	list = LinkedList.new
-  	list.prepend 1
-  	list.prepend 2
-  	list.prepend 3
+    list = LinkedList.new
+    list.prepend 1
+    list.prepend 2
+    list.prepend 3
     assert !list.empty?
     assert list.length == 3
     assert list.contains? 1
