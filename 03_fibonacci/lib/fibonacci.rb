@@ -1,5 +1,7 @@
 #memoization to record earlier calculations, from a stackexchange post
 def fib(n, cache = {})
+  raise "fibonacci undefined for negative input" if n < 0
+
   if n == 0 || n == 1
     return n
   end
@@ -8,6 +10,8 @@ end
 
 # naive slow implementation
 def fibonacci(n)
+  raise "fibonacci undefined for negative input" if n < 0
+
   if n < 2
     n
   else
