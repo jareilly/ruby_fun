@@ -36,6 +36,42 @@ describe "test" do
     assert list.stringify.eql?("1->2->3->3"), "DEBUG list:" + list.stringify
   end
 
+  it "test: insert before" do
+    list = LinkedList.new
+    list.append 2
+    list.append 3
+
+    begin
+      list.insert_before(22, 1)
+    rescue RangeError
+    end
+    begin
+      list.insert_before(-1, 1)
+    rescue RangeError
+    end
+
+    ix = 0
+    list.insert_before(ix, 1)
+    assert list.length == 3, "DEBUG list length is 3"
+    assert list.contains?(1), "DEBUG contains 1 " + list.stringify
+    assert list.contains?(2), "DEBUG contains 2"
+    assert list.contains?(3), "DEBUG contains 3"
+    assert list.stringify.eql?("1->2->3"), "DEBUG list:" + list.stringify
+
+    ix = 1
+    list.insert_before(ix, 4)
+    assert list.length == 4, "DEBUG list length is 3"
+    assert list.contains?(4), "DEBUG contains 1 " + list.stringify
+    assert list.stringify.eql?("1->4->2->3"), "DEBUG list:" + list.stringify
+
+    ix = 3
+    list.insert_before(ix, 5)
+    assert list.length == 5, "DEBUG list length is 3"
+    assert list.contains?(5), "DEBUG contains 1 " + list.stringify
+    assert list.stringify.eql?("1->4->2->5->3"), "DEBUG list:" + list.stringify
+
+  end
+
   #it "last test: fail until all tests written!!" do
   #  assert false
   #end

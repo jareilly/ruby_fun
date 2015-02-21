@@ -85,7 +85,34 @@ class LinkedList
     @length = @length + 1
   end
 
-  def insert(value, position)
+  def insert_before(index, value)
+    raise RangeError, 'index out of range' unless (index >= 0 && index < length)
+
+    n = 0
+    current = @head
+    previous = nil
+    until n == index
+      previous = current
+      current = current.next
+      n = n + 1
+    end
+
+    node = Node.new
+    node.value = value
+    node.next = current
+
+    if previous == nil
+      @head = node
+    else
+      previous.next = node
+    end
+    @length = @length + 1
+  end
+
+  def insert_after(value, position)
+    raise RangeError, 'position out of range' unless (position >= 0 && position < length-1)
+
+    # TBD
   end
 
   def delete(value, position)
