@@ -7,7 +7,7 @@ end
 
 task :bubble_sort_test do 
   Rake::TestTask.new do |test|
-    test.libs << "bubble_sort_test"
+    test.libs = ["bubble_sort_test"]
     test.pattern = "minitests/bubble_sort_test.rb"
   end
 end
