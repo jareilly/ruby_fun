@@ -8,27 +8,32 @@
 =end
 
 class LinkedList
+  attr_reader :length
 
   class Node
     attr_accessor :value, :next
   end
 
+
   def initialize
-    @node = nil
+    @head = nil
+    @length = 0
   end
 
   def empty?
-    return @node == nil
+    return @head == nil
   end
+
 
   def append(value)
   end
 
   def prepend(value)
-    nd = Node.new
-    nd.value = value
-    nd.next = @node
-    @node = nd
+    node = Node.new
+    node.value = value
+    node.next = @head
+    @head = node
+    @length = @length + 1
   end
 
   def insert(value, position)
@@ -36,5 +41,6 @@ class LinkedList
 
   def delete(value, position)
   end
+
 
 end
