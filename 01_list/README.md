@@ -1,4 +1,5 @@
 README
 ===============
 
-Some fun with ruby / lists
+Ruby's Array, Hash etc. are normally used.
+This is just for fun.
