@@ -1,0 +1,14 @@
+require 'rake/testtask'
+require 'rake/benchmark'
+
+task :default => [:test] do
+    puts "tests done"
+end
+
+task :test do 
+  Rake::TestTask.new do |t|
+    t.libs << "test"
+    t.test_files = FileList['minitests/*test.rb']
+    t.verbose = true
+  end
+end
