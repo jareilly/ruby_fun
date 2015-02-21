@@ -117,6 +117,25 @@ class LinkedList
     end
   end
 
-  def delete(value, position)
+  def delete(index)
+    raise RangeError, 'index out of range' unless (index >= 0 && index < length)
+
+    n = 0
+    current = @head
+    previous = nil
+    until n == index
+      previous = current
+      current = current.next
+      n = n + 1
+    end
+
+    if previous == nil
+      @head = @head.next
+    else
+      previous.next = current.next
+    end
+
+    @length = @length - 1
   end
+
 end
