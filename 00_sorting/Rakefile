@@ -1,27 +1,38 @@
 require 'rake/testtask'
 require 'rake/benchmark'
 
-task :default => [:bubble_sort_test, :quick_sort_test, :merge_sort_test] do
-    puts "testsorts done"
+task :default => [:bubble_sort_test, :quick_sort_test, :merge_sort_test, :heap_sort_test] do
+    puts "tests done"
 end
 
-task :bubble_sort_test do 
-  Rake::TestTask.new do |test|
-    test.libs = ["bubble_sort_test"]
-    test.pattern = "minitests/bubble_sort_test.rb"
+task :bubble_sort_test do
+  Rake::TestTask.new do |t|
+    t.libs << "test"
+    t.pattern = "minitests/bubble_sort_test.rb"
+    t.verbose = true
   end
 end
 
-task :quick_sort_test do 
-  Rake::TestTask.new do |test|
-    test.libs << "quick_sort_test"
-    test.pattern = "minitests/quick_sort_test.rb"
+task :quick_sort_test do
+  Rake::TestTask.new do |t|
+    t.libs << "test"
+    t.pattern = "minitests/quick_sort_test.rb"
+    t.verbose = true
   end
 end
 
-task :merge_sort_test do 
-  Rake::TestTask.new do |test|
-    test.libs << "merge_sort_test"
-    test.pattern = "minitests/merge_sort_test.rb"
+task :merge_sort_test do
+  Rake::TestTask.new do |t|
+    t.libs << "test"
+    t.pattern = "minitests/merge_sort_test.rb"
+    t.verbose = true
+  end
+end
+
+task :heap_sort_test do
+  Rake::TestTask.new do |t|
+    t.libs << "test"
+    t.pattern = "minitests/heap_sort_test.rb"
+    t.verbose = true
   end
 end

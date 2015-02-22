@@ -3,7 +3,7 @@ require 'minitest/spec'
 
 require 'bubble_sort'
 
-describe "basic bubble_sort" do
+describe "test" do
   it "should return a sorted array" do
     sorted = [1, 2, 3, 4, 5]
     unsorted = sorted.shuffle
