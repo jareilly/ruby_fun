@@ -22,14 +22,15 @@ describe "test" do
     assert heap_sort(unsorted).must_equal sorted
   end
 
-  #it "should sort arbirtarily large arrays" do
+  it "should sort arbirtarily large arrays" do
     # create a large sorted array... this could be a static one...
-    #minval = 0
-    #maxval = 200000
-    #size = maxval
-    #sorted = (minval..maxval).shuffle[0..size-1].sort
-#
-    #unsorted = sorted.shuffle
-    #heap_sort(unsorted).must_equal sorted
+    minval = 0
+    # adjust maxval as test time permits
+    maxval = 2000
+    size = maxval
+    sorted = (minval..maxval).shuffle[0..size-1].sort
+
+    unsorted = sorted.shuffle
+    heap_sort(unsorted).must_equal sorted
   #end
 end
